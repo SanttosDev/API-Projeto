@@ -1,8 +1,12 @@
+
 package br.com.api.Projeto.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,16 +21,22 @@ public class Usuario {
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "nome_completo", length = 200, nullable = true )	 
+	@NotBlank(message = "O nome é Obrigatório!")
+	@Size(min = 3, message = "O nome deve ter mais que 3 letras!")
+	@Column(name = "nome_completo", length = 200, nullable = false )	 
 	private String nome;
 	
-	@Column(name = "email", length = 50, nullable = true )	 
+	@Email(message = "Insira um Email válido!")
+	@NotBlank(message = "O email é Obrigatorio!")
+	@Column(name = "email", length = 50, nullable = false )	 
 	private String email;
 	
-	@Column(name = "senha", columnDefinition = "TEXT", nullable = true )	 
+	@NotBlank(message = "A senha é Obrigatorio!")
+	@Column(name = "senha", columnDefinition = "TEXT", nullable = false )	 
 	private String senha;
 	
-	@Column(name = "celular", length = 15, nullable = true )	 
+	@NotBlank(message = "O celular é Obrigatorio!")
+	@Column(name = "celular", length = 15, nullable = false )	 
 	private String celular;
 	
 	public Integer getId() {
