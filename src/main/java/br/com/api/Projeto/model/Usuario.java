@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 @Entity
 @Table(name = "usuario")
 
+// Criação do Objeto usuario (Class), aos quais seram entidades 
 public class Usuario {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,8 @@ public class Usuario {
 	@NotBlank(message = "O celular é Obrigatorio!")
 	@Column(name = "celular", length = 15, nullable = false )	 
 	private String celular;
+
+	// Getters e Setters para acessar e modificar os campos privados da classe
 	
 	public Integer getId() {
 		return id;
