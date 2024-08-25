@@ -4,6 +4,7 @@ const Inome = document.querySelector(".nome");
 const Iemail = document.querySelector(".email");
 const Isenha = document.querySelector(".senha");
 const Icel = document.querySelector(".cel");
+const mostrarSenhaBtn = document.querySelector(".mostrar-senha-btn");
 
 function cadastrar() {
     // Verifica se todos os campos estão preenchidos
@@ -50,6 +51,17 @@ function limpar() {
     Icel.value = "";
 }
 
+// Visualizar senha
+function toggleSenha() {
+    if (Isenha.type === "password") {
+        Isenha.type = "text";
+        mostrarSenhaBtn.textContent = "❎";
+    } else {
+        Isenha.type = "password";
+        mostrarSenhaBtn.textContent = "✅";
+    }
+}
+
 // Eventos do formulario
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -57,3 +69,5 @@ formulario.addEventListener("submit", function (event) {
     cadastrar();
     limpar();
 });
+
+mostrarSenhaBtn.addEventListener("click", toggleSenha);
