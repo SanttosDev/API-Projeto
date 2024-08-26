@@ -52,13 +52,13 @@ function limpar() {
 }
 
 // Visualizar senha
-function toggleSenha() {
+function MostrarSenha() {
     if (Isenha.type === "password") {
         Isenha.type = "text";
-        mostrarSenhaBtn.textContent = "❎";
+        mostrarSenhaBtn.textContent = "🔓";
     } else {
         Isenha.type = "password";
-        mostrarSenhaBtn.textContent = "✅";
+        mostrarSenhaBtn.textContent = "🔒";
     }
 }
 
@@ -70,4 +70,4 @@ formulario.addEventListener("submit", function (event) {
     limpar();
 });
 
-mostrarSenhaBtn.addEventListener("click", toggleSenha);
+mostrarSenhaBtn.addEventListener("click", MostrarSenha);
